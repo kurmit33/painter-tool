@@ -22,7 +22,8 @@ const coloringPageSchema = new mongoose.Schema(
 
     originalImage: {
       type: String,
-      required: true,
+      default: '',
+      required: false,
     },
 
     createdBy: {

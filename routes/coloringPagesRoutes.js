@@ -113,11 +113,11 @@ router.post('/', auth, async (req, res) => {
       });
     }
 
-    if (!originalImage) {
+    /*if (!originalImage) {
       return res.status(400).json({
         error: 'originalImage jest wymagane.',
       });
-    }
+    }*/
 
     const coloringSet = await ColoringSet.findById(setId);
 
