@@ -8,6 +8,9 @@ const authRoutes = require('./routes/authRoutes');
 const coloringSetsRoutes = require('./routes/coloringSetsRoutes');
 const coloringPagesRoutes = require('./routes/coloringPagesRoutes');
 const artworkRoutes = require('./routes/artworkRoutes');
+const artworkInteractionRoutes = require(
+  './routes/artworkInteractionRoutes'
+);
 
 const app = express();
 
