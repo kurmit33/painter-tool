@@ -96,6 +96,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/coloring-sets', coloringSetsRoutes);
 app.use('/api/coloring-pages', coloringPagesRoutes);
 app.use('/api/artworks', artworkRoutes);
+app.use('/api/artwork-interactions', artworkInteractionRoutes);
 
 
 /*

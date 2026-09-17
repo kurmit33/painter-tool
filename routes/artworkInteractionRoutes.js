@@ -264,4 +264,40 @@ router.delete(
     }
 );
 
+router.delete(
+    '/:artworkId/rating',
+    auth,
+    async (req, res) => {
+        try {
+            const artwork = await getPublicArtwork(
+                req.params.artworkId
+            );
+
+            if (!artwork) {
+                return res.status(404).json({
+                    error: 'Nie znaleziono publicznej pracy.',
+                });
+            }
+
+            await ArtworkRating.deleteOne({
+                artworkId: artwork._id,
+                userId: req.user.id,
+            });
+
+            return res.json({
+                message: 'Ocena została usunięta.',
+            });
+        } catch (error) {
+            console.error(
+                'Delete artwork rating error:',
+                error
+            );
+
+            return res.status(500).json({
+                error: 'Nie udało się usunąć oceny.',
+            });
+        }
+    }
+);
+
 module.exports = router;

@@ -14,10 +14,21 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    role: {
+      type: String,
+      enum: ['user', 'moderator', 'admin'],
+      default: 'user',
+    },
+
+    bannedUntil: {
+      type: Date,
+      default: null,
+    },
   },
   {
     timestamps: true,
-  }
+  },
+
 );
 
 module.exports = mongoose.model('User', userSchema);
