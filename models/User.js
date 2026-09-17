@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
     role: {
       type: String,
       enum: ['user', 'moderator', 'admin'],
@@ -24,11 +25,25 @@ const userSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
+
+    emailVerified: {
+      type: Boolean,
+      default: false,
+    },
+
+    emailVerificationToken: {
+      type: String,
+      default: null,
+    },
+
+    emailVerificationExpires: {
+      type: Date,
+      default: null,
+    },
   },
   {
     timestamps: true,
-  },
-
+  }
 );
 
 module.exports = mongoose.model('User', userSchema);
